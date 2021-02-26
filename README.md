@@ -6,7 +6,7 @@
 2. docker-compose build
 3. docker-compose up -d
 4. Abrir http://localhost:4200
-5. Ingresar con lar credenciales del administrador (email: admin@admin.com, password: admin)
+5. Ingresar con las credenciales del administrador (email: admin@admin.com, password: admin)
 
 # Descripción
 
