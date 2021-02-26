@@ -29,15 +29,6 @@ Backend:
 ✓ API creada con NODE framework Express JS para la creación de API.
 ✓ Persistencia en base de datos MongoDB, ORM moongoose.
 ✓ Mensajería se encuentra en formato JSON.
-✓ La API cuenta con las siguientes rutas:
-
-  GET /api/holidays
-  POST /api/holidays
-  GET /api/holidays/:id
-  PUT /api/holidays/:id
-  DELETE /api/holidays/:id
-  GET /api/holidays/:year/get
-  GET /api/holidays/:year/refresh
 
 Flujo de aplicacion:
 
