@@ -1,0 +1,51 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="onboard-slide">
+        <img class="logo" src="../assets/images/interstellar.png" alt="Logo Interstellar">
+        <h1 class="title">Interstellar</h1>
+        <h4 class="subtitle">Astronaves a tu alcance</h4>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="onboard-form">
+        <small class="alert-success text-center mb-3" *ngIf="status == 'success'">
+          Registro exitoso, <a routerLink="/auth/login">Iniciar Sesión</a>
+        </small>
+        <small class="alert-message text-center mb-3" *ngIf="status === 'error'">{{message}}</small>
+        <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onRegister(frmLogin)" autocomplete="off">
+          <small class="alert-message" *ngIf="!name.valid && name.touched">Nombre incompleto</small>
+          <div class="input-custom-group">
+            <input type="name" name="name" #name="ngModel" class="input-custom-control" placeholder="Nombre" ngModel
+              required>
+            <span class="input-custom-alert ml-auto" *ngIf="!name.valid && name.touched"><i
+                class="fa fa-exclamation-circle fa-lg"></i></span>
+          </div>
+
+          <small class="alert-message" *ngIf="!email.valid && email.touched">Email incompleto</small>
+          <div class="input-custom-group">
+            <input type="email" name="email" #email="ngModel" class="input-custom-control" placeholder="Email" ngModel
+              required>
+            <span class="input-custom-alert ml-auto" *ngIf="!email.valid && email.touched"><i
+                class="fa fa-exclamation-circle fa-lg"></i></span>
+          </div>
+          <small class="alert-message" *ngIf="!password.valid && password.touched">Contraseña incompleta</small>
+          <div class="input-custom-group">
+            <span class="input-custom-icon"><i class="fa fa-lock"></i></span>
+            <input [type]="fieldTextType ? 'text' : 'password'" name="password" #password="ngModel"
+              class="input-custom-control" placeholder="Contraseña" ngModel required>
+            <span class="input-custom-icon ml-auto" (click)="toggleFieldTextType()"><i class="fa"
+                [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}"></i></span>
+            <span class="input-custom-alert pl-2 ml-auto" *ngIf="!password.valid && password.touched"><i
+                class="fa fa-exclamation-circle fa-lg"></i></span>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!frmLogin.form.valid">Regístrate</button>
+          </div>
+        </form>
+
+        <p class="text-center"><a routerLink="/auth/login">¿Ya tienes una cuenta? Iniciar sesión</a> </p>
+      </div>
+    </div>
+  </div>
+</div>

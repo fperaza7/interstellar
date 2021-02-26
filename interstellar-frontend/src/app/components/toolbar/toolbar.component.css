@@ -1,0 +1,51 @@
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar-item {
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-icon {
+  font-size: 0.7rem;
+  color: rgba(112, 105, 103, 0.7);
+}
+
+.toolbar-item.active {
+  border-bottom: 3px solid #ff441f;
+}
+
+.toolbar-item.active .toolbar-icon {
+  color: #ff441f;
+}
+
+.toolbar-item .indicator-notifications {
+  background-color: #ff441f;
+  font-family: RobotoBold;
+  font-size: 11px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50% 50%;
+  position: absolute;
+  left: -2px;
+  top: -20px;
+}
+
+@media (min-width: 768px) {
+  .toolbar-icon {
+    font-size: 0.8rem;
+  }
+}

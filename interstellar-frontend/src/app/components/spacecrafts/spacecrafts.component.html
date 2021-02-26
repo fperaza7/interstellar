@@ -1,0 +1,137 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>{{title}}</h3>
+    </div>
+    <div class="col">
+      <a (click)="openNewSpacecraft(modalNewSpacecraft)">
+        <span class="fa fa-plus-circle fa-2x float-right"></span>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div style="text-align: center;" *ngIf="loading">
+    <img src="../../assets/images/loading.gif" class="loading" alt="Loading image" />
+  </div>
+  <div *ngIf="!loading; then end"></div>
+
+  <ng-template #end>
+    <div *ngIf="spacecrafts && spacecrafts.length > 0; then exists; else notexists"></div>
+  </ng-template>
+
+
+  <ng-template #exists>
+    <div class="row justify-content-center mb-2" *ngFor="let spacecraft of spacecrafts">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-4 px-2 d-flex justify-content-center">
+                <img class="spacecraft-img" src="{{ API_URL + '/spacecraft/' + spacecraft.image }}"
+                  *ngIf="spacecraft.image" alt="Imagen astronave" />
+                <img class="spacecraft-img" src="assets/images/rocket-empty.png" *ngIf="!spacecraft.image"
+                  alt="Imagen de perfil" />
+                <br>
+              </div>
+              <div class="col-5 px-2">
+                <h4 class="mb-0 text-truncated">{{spacecraft.name}}</h4>
+                <p>Capacidad: {{spacecraft.capacity}}</p>
+                <span class="badge badge-success">Disponible</span>
+              </div>
+              <div class="col-3 d-flex">
+                <h3 class="mb-0 text-truncated">${{spacecraft.pricePerDay}}</h3>
+              </div>
+            </div>
+            <div class="row align-items-end">
+              <div class="col">
+                <a (click)="openDeleteSpacecraft(modalConfirmDelete, spacecraft)" class="text-danger">
+                  <span class="fa fa-trash float-right"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #notexists>
+    <div class="card bg-light col-lg-6">
+      <div class="card-body">
+        <h5>No hay astronaves en la plataforma</h5>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-success" (click)="viewMore()" *ngIf="!noMore && spacecrafts.length>0">
+        Ver más
+      </button>
+    </div>
+  </div>
+
+
+  <ng-template #modalNewSpacecraft let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modalNewConsultationLabel">Nueva astronave</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #frmNewSpacecraft="ngForm" class="login-container" (ngSubmit)="newSpacecraft(frmNewSpacecraft)"
+        autocomplete="off">
+        <small class="alert-message" *ngIf="!name.valid && name.touched">Nombre no valido</small>
+        <div class="input-custom-group">
+          <input type="text" name="name" #name="ngModel" class="input-custom-control" placeholder="Nombre" ngModel
+            required>
+          <span class="input-custom-alert ml-auto" *ngIf="!name.valid && name.touched"><i
+              class="fa fa-exclamation-circle fa-lg"></i></span>
+        </div>
+        <small class="alert-message" *ngIf="!capacity.valid && capacity.touched">Capacidad no valida</small>
+        <div class="input-custom-group">
+          <input type="number" name="capacity" #capacity="ngModel" class="input-custom-control" placeholder="Capacidad"
+            ngModel required>
+          <span class="input-custom-alert ml-auto" *ngIf="!capacity.valid && capacity.touched"><i
+              class="fa fa-exclamation-circle fa-lg"></i></span>
+        </div>
+        <small class="alert-message" *ngIf="!pricePerDay.valid && pricePerDay.touched">Precio no valido</small>
+        <div class="input-custom-group">
+          <input type="number" name="pricePerDay" #pricePerDay="ngModel" class="input-custom-control"
+            placeholder="Precio por dia" ngModel required>
+          <span class="input-custom-alert ml-auto" *ngIf="!pricePerDay.valid && pricePerDay.touched"><i
+              class="fa fa-exclamation-circle fa-lg"></i></span>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" [disabled]="!frmNewSpacecraft.form.valid">Crear
+            astronave</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+
+  <ng-template #modalConfirmDelete let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-title">Eliminar astronave</h4>
+      <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+        (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p><strong>¿Estás seguro de que deseas eliminar la astronave <span
+            class="text-primary">"{{spacecraftSelected.name}}"</span>?</strong></p>
+      <p>Toda la información asociada a esta aeronave se eliminará de forma permanente.
+        <span class="text-danger">Esta operación no se puede deshacer.</span>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+      <button type="button" ngbAutofocus class="btn btn-danger" (click)="deleteSpacecraft()">Ok</button>
+    </div>
+  </ng-template>
+
+</div>

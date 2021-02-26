@@ -1,0 +1,224 @@
+/* You can add global styles to this file, and also import other style files */
+/*ROBOTO*/
+@font-face {
+  font-family: "Roboto";
+  src: url(/assets/fonts/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoLight";
+  src: url(/assets/fonts/Roboto-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoMedium";
+  src: url(/assets/fonts/Roboto-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoBold";
+  src: url(/assets/fonts/Roboto-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoThin";
+  src: url(/assets/fonts/Roboto-Thin.ttf) format("truetype");
+}
+
+/*TOLYER*/
+@font-face {
+  font-family: "TolyerBold";
+  src: url(/assets/fonts/Tolyer-Bold.ttf) format("truetype");
+}
+
+html,
+body {
+  font-family: "Roboto";
+  /*letter-spacing: 0.5;
+  line-height: 1;*/
+  overflow-x: hidden;
+  color: #706967;
+  background-color: #fafaf8;
+}
+
+.container{
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #706967;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    margin: 0;
+    color: #332927;
+}
+
+/* Small devices (mobiles, tablets) */
+h1 {
+  font-family: RobotoBold;
+  font-size: 36px;
+}
+h2 {
+  font-family: RobotoBold;
+  font-size: 30px;
+}
+h3 {
+  font-family: RobotoBold;
+  font-size: 24px;
+}
+h4 {
+  font-family: RobotoBold;
+  font-size: 18px;
+}
+h5, strong {
+  font-family: RobotoBold;
+  font-size: 14px;
+}
+h6,
+p,
+a,
+label {
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+small {
+  font-family: Roboto;
+  font-size: 12px;
+}
+
+.subtitle{
+  color: #706967;
+}
+
+.input-custom-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0;
+  border-radius: 12px;
+  padding: 0 15px;
+  outline: none;
+  width: 100%;
+  background-color: #ffffff;
+  /*color: #7d7d7d;*/
+  height: 45px;
+  box-shadow: 0 4px 10px 0 rgba(128, 98, 96, 0.16);
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+.input-custom-group input {
+  border: 0;
+  outline: none;
+  padding: 0 15px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.input-custom-group select {
+  border: 0;
+  outline: none;
+  max-width: 58px;
+  background-color: #ffffff;
+}
+
+.input-custom-group .input-custom-icon {
+  color: #b8b4b4
+}
+
+.input-custom-group .input-custom-alert {
+  color: #fb0232
+}
+
+.input-custom-group input::-webkit-input-placeholder { /* Edge */
+  color: #b8b4b4
+}
+
+.input-custom-group input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #b8b4b4;
+}
+
+.input-custom-group input::placeholder {
+  color: #b8b4b4;
+}
+
+
+.alert-message{
+  color: #fb0232;
+  padding: 0 10px;
+  text-align: end;
+  margin-bottom: 1%;
+}
+
+form .btn-primary {
+  background-image: linear-gradient(130deg, #ff9259 0, #ff2426 70%);
+  border-color: #ff2426 !important;
+  border-radius: 12px;
+  height: 40px;
+  width: 100%;
+
+}
+
+form .btn-primary:disabled{
+  background-image: none;
+  background-color: #b8b4b4;
+  border-color: #b8b4b4 !important;
+}
+
+
+.loading{
+  width: 100%;
+  max-width: 500px;
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container{
+    margin-top: 100px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 32px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 16px;
+  }
+
+  strong,
+  p,
+  a,
+  label {
+    font-size: 16px;
+  }
+  small {
+    font-size: 14px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+}

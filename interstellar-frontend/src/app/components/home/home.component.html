@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h3>¡Hola, {{userData.name.split(" ")[0]}}!</h3>
+  <h5>Ya eres parte de Interstellar, ahora disfrútalo.</h5>
+  <br>
+  <p>¿Qué quieres hacer a continuación con tu aplicación?</p>
+
+  <div class="row px-1" *ngIf="userData && userData!=null">
+    <div class="col-6 col-md-3 px-2 pt-2" *ngIf="authService.isAdmin()">
+      <a class="card spacecrafts py-3 mt-2 justify-content-center align-items-center" routerLink="/spacecrafts"
+        routerLinkActive="active">
+        <img src="../assets/images/icons8-rocket.png" alt="">
+        <span class="mt-2">Astronaves</span>
+      </a>
+    </div>
+    <div class="col-6 col-md-3 px-2 pt-2" *ngIf="authService.isAdmin()">
+      <a class="card pilots py-3 mt-2 justify-content-center align-items-center" routerLink="/pilots"
+        routerLinkActive="active">
+        <img src="../assets/images/icons8-management.png" alt="">
+        <span class="mt-2">Pilotos</span>
+      </a>
+    </div>
+    <div class="col-6 col-md-3 px-2 pt-2" *ngIf="authService.isAdmin() || authService.isUser()">
+      <a class="card reservations py-3 mt-2 justify-content-center align-items-center" routerLink="/reservations"
+        routerLinkActive="active">
+        <img src="../assets/images/icons8-investment-portfolio.png" alt="">
+        <span class="mt-2">Reservas</span>
+      </a>
+    </div>
+  </div>

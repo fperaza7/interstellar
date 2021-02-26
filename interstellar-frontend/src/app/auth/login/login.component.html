@@ -1,0 +1,40 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="onboard-slide">
+        <img class="logo" src="../assets/images/interstellar.png" alt="Logo Interstellar">
+        <h1 class="title">Interstellar</h1>
+        <h4 class="subtitle">Astronaves a tu alcance</h4>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="onboard-form">
+        <small class="alert-message text-center mb-3" *ngIf="status === 'error'">Datos incorrectos, intentalo
+          nuevamente</small>
+        <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin(frmLogin)" autocomplete="off">
+          <small class="alert-message" *ngIf="!email.valid && email.touched">Numero de celular incompleto</small>
+          <div class="input-custom-group">
+            <input type="email" name="email" #email="ngModel" class="input-custom-control" placeholder="Email" ngModel required>
+            <span class="input-custom-alert ml-auto" *ngIf="!email.valid && email.touched"><i
+                class="fa fa-exclamation-circle fa-lg"></i></span>
+          </div>
+          <small class="alert-message" *ngIf="!password.valid && password.touched">Contraseña incompleta</small>
+          <div class="input-custom-group">
+            <span class="input-custom-icon"><i class="fa fa-lock"></i></span>
+            <input [type]="fieldTextType ? 'text' : 'password'" name="password" #password="ngModel" class="input-custom-control"
+              placeholder="Contraseña" ngModel required>
+            <span class="input-custom-icon ml-auto" (click)="toggleFieldTextType()"><i class="fa"
+                [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType}"></i></span>
+            <span class="input-custom-alert pl-2 ml-auto" *ngIf="!password.valid && password.touched"><i
+                class="fa fa-exclamation-circle fa-lg"></i></span>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!frmLogin.form.valid">Iniciar sesión</button>
+          </div>
+        </form>
+        <p class="text-center"><a routerLink="">¿Olvidaste tu contraseña?</a> </p>
+        <p class="text-center"><a routerLink="/auth/register">¿No tienes una cuenta? Regístrate</a> </p>
+      </div>
+    </div>
+  </div>
+</div>
