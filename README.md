@@ -10,14 +10,16 @@
 
 # Descripción
 
-Desarrollo de aplicación para administración de astronaves, 
-El proyecto Incluye:
+Desarrollo de prototipo de aplicación para gestion, reserva y administración de astronaves.
+
+Para este MVP el proyecto incluye:
 
 Frontend:
 
 ✓ Frontend con framework de JavaScript AngularJS.
 ✓ Libreria de estilos Bootstrap.
 ✓ Modulo de autenticacion basado en JWT
+✓ Modulo de registro
 ✓ Modulo de Inicio
 ✓ Modulo CRUD para administracion de astronaves.
 ✓ Responsive Design
